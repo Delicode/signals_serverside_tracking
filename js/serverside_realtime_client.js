@@ -43,7 +43,7 @@ var colors = [
 
 function create_svg() {
 
-	// Create the base svg instance on which everythign else is drawn
+	// Create the base svg instance on which everything else is drawn
 	svg = d3.select("#floorplan").append("svg")
 		.attr("width", width)
 		.attr("height", height);
