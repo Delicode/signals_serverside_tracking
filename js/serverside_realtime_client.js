@@ -40,6 +40,8 @@ var colors = [
 ];
 
 function create_svg() {
+
+	// Create the base svg instance on which everythign else is drawn
 	svg = d3.select("#floorplan").append("svg")
 		.attr("width", width)
 		.attr("height", height);
@@ -69,10 +71,6 @@ function create_svg() {
 			.style("stroke", "black")
 			.style("stroke-width", "1.1");
 	}
-}
-
-function lerp(x0, x1, alpha) {
-	return x0 * (1.0 - alpha) + alpha * x1;
 }
 
 function remove_point(id) {
@@ -160,7 +158,7 @@ function draw_data() {
 				person_id: per.person_id,
 				txt: svg.append("text"),
 
-				// mark down when this text was last updated
+				// Store the time when this text was last updated
 				alive: Date.now()
 			}
 
@@ -177,6 +175,7 @@ function draw_data() {
 		text.txt.text(label);
 	});
 
+	// draw a circle at the position of every current detected person
 	var pts = svg.selectAll(".person").data(person_point_data);
 	pts.enter().append("circle").attr("class", "person");
 
@@ -213,7 +212,7 @@ $(document).ready(function() {
 
 		/**
 		 * Send a login request immediately with a valid token
-		 * The locations array are the ids for each location you wish to get
+		 * The locations array must contain the ids for each location you wish to get
 		 * data for. The ids can be found in the location editor on the setup page
 		 */
 		var out = {
@@ -256,7 +255,7 @@ $(document).ready(function() {
 
 			// scale the points so they map on the grid
 			pt.x = x_scale(pt.x);
-			pt.y = x_scale(pt.y);
+			pt.y = y_scale(pt.y);
 
 			// remove all old points for this person
 			person_point_data = person_point_data.filter(function(d) {
