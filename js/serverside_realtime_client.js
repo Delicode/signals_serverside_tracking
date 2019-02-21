@@ -12,7 +12,9 @@ var remote_url = "wss://signals.delicode.com/websocket_realtime";
 var width = 500;
 var height = 500;
 
-// Values used for interpolating the arriving data within 90x90 meter area
+// Maximum and minimum values for the arriving data from the server
+// Customize this based on how large your location is
+// This is in centimeters
 var val_min = -4500;
 var val_max = 4500;
 
