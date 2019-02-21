@@ -1,6 +1,10 @@
 # Serverside realtime tracking API
 
-Using the Delicode Signals realtime tracking API is done over a websocket connection. To open a connection, you require a JSON Web Token (JWT) for your location. This can be found one the Signals setup page under "Locations".
+Using the Delicode Signals realtime tracking API is done over a websocket connection. To open a connection, you require a JSON Web Token (JWT) for your location. This can be found on the Signals setup page under "Locations".
+
+![tokens](./tokens.png)
+
+Tokens can be deleted under user Account settings -> "Permanent links". Note that once a token is deleted, all connections using the token will be closed.
 
 ### General
 
@@ -15,7 +19,7 @@ All messages sent to the server must be UTF-8 cleartext, encoded in JSON. Every 
 
 Sending messages without these fields results in the socket being closed.
 
-The server responses to all requests are always formatted as follows:
+The replies are always formatted as follows:
 
 ```
 {
@@ -57,7 +61,7 @@ In case there's a problem authenticating the token, the socket connection will b
 
 After this message, the server will be sending data related to all the locations specified in the request.
 
-The locations parameters must be a valid location ids for your current token.
+The location parameters must be valid location ids for your current token.
 
 Additional "realtime_register" messages from the same socket will be ignored after a registration has been finished once.
 
@@ -120,7 +124,7 @@ In this data, gender is:
 * 1: The person is male
 * 2: The person is female
 
-And age is a single integer approximating the age.
+And age is a single integer approximating the age in years.
 
 The demographics data may appear even if no any position data has been transmitted for the person in question.
 
