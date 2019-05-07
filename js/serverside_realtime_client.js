@@ -278,7 +278,7 @@ $(document).ready(function() {
 			};
 
 			// remove all old demographics for this person
-			demographisc = demographics.filter(function(d) {
+			demographics = demographics.filter(function(d) {
 				return d.person_id != js.person_id;
 			});
 
