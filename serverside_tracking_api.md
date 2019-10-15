@@ -92,7 +92,7 @@ As data is calculated from the devices assigned to a location, the server can se
 		"x": number,
 		"y": number
 	},
-	"confidence": 1
+	"confidence": number
 }
 ```
 
