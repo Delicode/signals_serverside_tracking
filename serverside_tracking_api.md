@@ -91,11 +91,12 @@ As data is calculated from the devices assigned to a location, the server can se
 	"position": {
 		"x": number,
 		"y": number
-	}
+	},
+	"confidence": 1
 }
 ```
 
-The position data is centimeters in relation to the origin point in the location. The origin is where the "ruler" is placed on the location.
+The position data is centimeters in relation to the origin point in the location. The origin is where the "ruler" is placed on the location. The confidence value is a float between 0 and 1 describing how confident the data is where 1 is the highest confidence.
 
 #### When a person is lost
 
